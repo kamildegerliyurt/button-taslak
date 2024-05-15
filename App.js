@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
+import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native'
 import React from 'react'
+
 
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -12,61 +13,66 @@ const App = () => {
 
 
   return (
-    <View style={styles.container}>
-
-      {/* <AwesomeButton>Press</AwesomeButton>
-      <AwesomeButton type="primary">Press</AwesomeButton>
-      <AwesomeButton type="secondary">Secondary</AwesomeButton>
-      <AwesomeButton type="anchor">Anchor</AwesomeButton> */}
-      {/* <AwesomeButton type="danger">Danger</AwesomeButton> */}
+    <SafeAreaView style={styles.container}>
 
 
-      <AwesomeButton 
-          extra={
-                 <LinearGradient  colors={["#4C63D2", 
-                                           "#BC3081", 
-                                           "#F47133", 
-                                           "#FED576"]}
-                                  style={{ ...StyleSheet.absoluteFillObject }}
-                 />
-                }>
+      <ScrollView showsVerticalScrollIndicator={false}>
 
-                  <Text>Press1</Text> 
-      </AwesomeButton>
+      <View style={{alignItems:"center", justifyContent:"center"}}>
 
+        <AwesomeButton 
+            extra={
+                  <LinearGradient  colors={["#4C63D2", 
+                                            "#BC3081", 
+                                            "#F47133", 
+                                            "#FED576"]}
+                                    style={{ ...StyleSheet.absoluteFillObject }}
+                  />
+                  }>
+
+                    <Text>Press1</Text> 
+        </AwesomeButton>
+      </View>
 
 
 
 
-      <ThemedButton name="rick" type="primary">Press2</ThemedButton>
+        <View style={{marginVertical:20,}}>
+          <ThemedButton name="rick" type="primary">Press2</ThemedButton>
+          <ThemedButton name="rick" type="secondary">Press2</ThemedButton>
+          <ThemedButton name="rick" type="anchor">Press2</ThemedButton>
+          <ThemedButton name="rick" type="danger">Press2</ThemedButton>
+          <ThemedButton name="rick" type="disabled">Press2</ThemedButton>
+        </View>
+
+        <View style={{marginVertical:20,}}>
+          <ThemedButton name="bruce" type="primary">Press3</ThemedButton>
+          <ThemedButton name="bruce" type="secondary">Press3</ThemedButton>
+          <ThemedButton name="bruce" type="anchor">Press3</ThemedButton>
+          <ThemedButton name="bruce" type="danger">Press3</ThemedButton>
+          <ThemedButton name="bruce" type="disabled">Press3</ThemedButton>
+          <ThemedButton name="bruce" type="primary" before={<FontAwesome name="trash-o" 
+                                                                        size={24} 
+                                                                        color="red" />}> Press3
+          </ThemedButton>
 
 
 
-      <ThemedButton name="bruce" type="primary">Press3</ThemedButton>
+          <ThemedButton name="bruce" type="primary" after={<FontAwesome name="trash-o" 
+                                                                        size={24} 
+                                                                        color="red" />}> Press3
+          </ThemedButton>
+        </View>
+      
 
 
 
-      <ThemedButton name="bruce"
-                    type="primary"
-                    before={<FontAwesome name="trash-o" 
-                                         size={24} 
-                                         color="red" />}> Press4
-      </ThemedButton>
-
-
-
-      <ThemedButton name="bruce"
-                    type="primary"
-                    after={<FontAwesome name="trash-o" 
-                                         size={24} 
-                                         color="red" />}> Press5
-      </ThemedButton>
+      </ScrollView>
 
 
 
 
-
-    </View>
+    </SafeAreaView>
   )
 }
 
@@ -87,5 +93,5 @@ const styles = StyleSheet.create({
     marginTop:10,
     padding:5,
     borderRadius:10,
-  }
+  },
 })
